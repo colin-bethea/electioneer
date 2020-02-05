@@ -1,20 +1,19 @@
 import React from 'react';
-import { JsonToTable } from "react-json-to-table"; 
+import { JsonToTable } from "react-json-to-table"
 
 const Dashboard = () => {
 
-    const myJson = {
-        "Student": { name: "Jack", email: "jack@xyz.com" },
-        "Student id": 888,
-        "Sponsors": [
-          { name: "john", email: "john@@xyz.com" },
-          { name: "jane", email: "jane@@xyz.com" }
+    const sampleElectionOdds = {
+        "2020 Election": [
+          { Candidate: "Bernie Sanders", Odds: "33.8%" },
+          { Candidate: "Michael Bloomberg", Odds: "18.2%" },
+          { Candidate: "Joe Biden", Odds: "15.9%" },
         ]
       };
 
     return (
       <>
-        <JsonToTable json={myJson} />
+        <JsonToTable json={sampleElectionOdds} />
       </>
     );
 }
