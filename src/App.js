@@ -1,11 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
     <>
-      <h1>Electioneer</h1>
+      <Dashboard />
     </>
   );
 }
