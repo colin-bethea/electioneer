@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'
 import { JsonToTable } from "react-json-to-table"
 
 const Dashboard = () => {
 
+    const [candidateState, setCandidateState] = useState({
+        userId: null,
+        id: null,
+        title: null,
+        completed: null
+    })
+
+    useEffect(() => {
+        async function fetchData() {
+            axios.get(`https://jsonplaceholder.typicode.com/todos`)
+              .then(res => {
+                const data = res.data;
+                setCandidateState(data);
+              })
+        }
+        fetchData()
+      }, [])
+
     const sampleElectionOdds = {
-        "2020 Election": [
-          { Candidate: "Bernie Sanders", Odds: "33.8%" },
-          { Candidate: "Michael Bloomberg", Odds: "18.2%" },
-          { Candidate: "Joe Biden", Odds: "15.9%" },
-        ]
+        candidateState
       };
 
     return (
